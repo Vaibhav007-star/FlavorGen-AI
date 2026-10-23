@@ -1,0 +1,42 @@
+# ------------------------------------------------------------
+# AI Smell & Flavor Synthesizer - Backend Containerfile
+# Python 3.11 with RDKit and Scientific ML Runtime
+# ------------------------------------------------------------
+
+FROM python:3.11-slim
+
+ENV PYTHONUNBUFFERED=1 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PIP_NO_CACHE_DIR=1 \
+    PORT=8000
+
+WORKDIR /app
+
+# Install OS libraries required for RDKit and headless scientific computing
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    libxrender1 \
+    libxext6 \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy and install python dependencies
+COPY requirements.txt .
+RUN pip install --upgrade pip && pip install -r requirements.txt
+
+# Copy application and ML intelligence modules
+COPY backend/ ./backend/
+COPY ml/ ./ml/
+COPY data/ ./data/
+
+# Verify database exists or seed if missing
+RUN python -m backend.app.models.seed
+
+# Healthcheck probe
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+    CMD curl -f http://localhost:8000/api/v1/health || exit 1
+
+EXPOSE 8000
+
+CMD ["uvicorn", "backend.app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+

@@ -1,0 +1,471 @@
+{
+  "benchmark_models": {
+    "Random Forest Ensemble": {
+      "aroma": {
+        "mae": 0.131,
+        "rmse": 0.2145,
+        "r2": 0.194,
+        "cv_time_sec": 1.207,
+        "per_descriptor": {
+          "fruity": {
+            "mae": 0.1824,
+            "rmse": 0.2463,
+            "r2": 0.3338,
+            "pearson_r": 0.5967
+          },
+          "floral": {
+            "mae": 0.1197,
+            "rmse": 0.2144,
+            "r2": 0.2289,
+            "pearson_r": 0.4787
+          },
+          "citrus": {
+            "mae": 0.1047,
+            "rmse": 0.205,
+            "r2": 0.1286,
+            "pearson_r": 0.3819
+          },
+          "woody": {
+            "mae": 0.1229,
+            "rmse": 0.2003,
+            "r2": 0.104,
+            "pearson_r": 0.3233
+          },
+          "spicy": {
+            "mae": 0.1178,
+            "rmse": 0.209,
+            "r2": 0.2685,
+            "pearson_r": 0.5447
+          },
+          "earthy": {
+            "mae": 0.1107,
+            "rmse": 0.175,
+            "r2": 0.0935,
+            "pearson_r": 0.3107
+          },
+          "creamy_vanilla": {
+            "mae": 0.1525,
+            "rmse": 0.2409,
+            "r2": 0.177,
+            "pearson_r": 0.4355
+          },
+          "roasted_nutty": {
+            "mae": 0.1245,
+            "rmse": 0.2174,
+            "r2": 0.2968,
+            "pearson_r": 0.6214
+          },
+          "green_herbal": {
+            "mae": 0.162,
+            "rmse": 0.2523,
+            "r2": -0.0228,
+            "pearson_r": 0.1283
+          },
+          "caramel_sweet": {
+            "mae": 0.1574,
+            "rmse": 0.2138,
+            "r2": 0.2669,
+            "pearson_r": 0.5443
+          },
+          "sulfuric_pungent": {
+            "mae": 0.1018,
+            "rmse": 0.1954,
+            "r2": 0.3139,
+            "pearson_r": 0.587
+          },
+          "fresh_cooling": {
+            "mae": 0.1159,
+            "rmse": 0.1908,
+            "r2": 0.1386,
+            "pearson_r": 0.3733
+          }
+        }
+      },
+      "flavor": {
+        "mae": 0.1091,
+        "rmse": 0.1964,
+        "r2": 0.1599,
+        "cv_time_sec": 1.154,
+        "per_descriptor": {
+          "sweet": {
+            "mae": 0.2044,
+            "rmse": 0.2481,
+            "r2": 0.2723,
+            "pearson_r": 0.5357
+          },
+          "sour": {
+            "mae": 0.1087,
+            "rmse": 0.2172,
+            "r2": 0.1909,
+            "pearson_r": 0.4437
+          },
+          "bitter": {
+            "mae": 0.1523,
+            "rmse": 0.2164,
+            "r2": 0.1763,
+            "pearson_r": 0.4219
+          },
+          "salty": {
+            "mae": 0.0322,
+            "rmse": 0.1009,
+            "r2": 0.5904,
+            "pearson_r": 0.9161
+          },
+          "umami": {
+            "mae": 0.0663,
+            "rmse": 0.1849,
+            "r2": -0.1055,
+            "pearson_r": -0.1117
+          },
+          "astringent": {
+            "mae": 0.0788,
+            "rmse": 0.1648,
+            "r2": 0.1062,
+            "pearson_r": 0.3298
+          },
+          "pungent": {
+            "mae": 0.1078,
+            "rmse": 0.1845,
+            "r2": 0.2795,
+            "pearson_r": 0.579
+          },
+          "cooling": {
+            "mae": 0.0506,
+            "rmse": 0.1591,
+            "r2": -0.0802,
+            "pearson_r": -0.0457
+          },
+          "creamy_mouthfeel": {
+            "mae": 0.1319,
+            "rmse": 0.208,
+            "r2": 0.1857,
+            "pearson_r": 0.4387
+          },
+          "acidic_crisp": {
+            "mae": 0.1584,
+            "rmse": 0.237,
+            "r2": -0.017,
+            "pearson_r": 0.1761
+          }
+        }
+      }
+    },
+    "Gradient Boosting MultiOutput": {
+      "aroma": {
+        "mae": 0.1378,
+        "rmse": 0.2732,
+        "r2": -0.3045,
+        "cv_time_sec": 12.343,
+        "per_descriptor": {
+          "fruity": {
+            "mae": 0.1528,
+            "rmse": 0.2683,
+            "r2": 0.2099,
+            "pearson_r": 0.5439
+          },
+          "floral": {
+            "mae": 0.1132,
+            "rmse": 0.2644,
+            "r2": -0.173,
+            "pearson_r": 0.3905
+          },
+          "citrus": {
+            "mae": 0.1265,
+            "rmse": 0.2784,
+            "r2": -0.6077,
+            "pearson_r": 0.228
+          },
+          "woody": {
+            "mae": 0.1347,
+            "rmse": 0.2416,
+            "r2": -0.3037,
+            "pearson_r": 0.191
+          },
+          "spicy": {
+            "mae": 0.1782,
+            "rmse": 0.343,
+            "r2": -0.9699,
+            "pearson_r": 0.0422
+          },
+          "earthy": {
+            "mae": 0.112,
+            "rmse": 0.2009,
+            "r2": -0.1952,
+            "pearson_r": 0.0055
+          },
+          "creamy_vanilla": {
+            "mae": 0.1762,
+            "rmse": 0.3475,
+            "r2": -0.7125,
+            "pearson_r": 0.2458
+          },
+          "roasted_nutty": {
+            "mae": 0.1229,
+            "rmse": 0.2789,
+            "r2": -0.1571,
+            "pearson_r": 0.1165
+          },
+          "green_herbal": {
+            "mae": 0.1512,
+            "rmse": 0.2756,
+            "r2": -0.221,
+            "pearson_r": 0.0367
+          },
+          "caramel_sweet": {
+            "mae": 0.1805,
+            "rmse": 0.2764,
+            "r2": -0.2257,
+            "pearson_r": 0.2956
+          },
+          "sulfuric_pungent": {
+            "mae": 0.0843,
+            "rmse": 0.2222,
+            "r2": 0.113,
+            "pearson_r": 0.4869
+          },
+          "fresh_cooling": {
+            "mae": 0.1218,
+            "rmse": 0.2442,
+            "r2": -0.4117,
+            "pearson_r": 0.0859
+          }
+        }
+      },
+      "flavor": {
+        "mae": 0.1133,
+        "rmse": 0.2412,
+        "r2": -0.2653,
+        "cv_time_sec": 5.416,
+        "per_descriptor": {
+          "sweet": {
+            "mae": 0.1993,
+            "rmse": 0.2831,
+            "r2": 0.0524,
+            "pearson_r": 0.3335
+          },
+          "sour": {
+            "mae": 0.1133,
+            "rmse": 0.2952,
+            "r2": -0.4947,
+            "pearson_r": 0.2445
+          },
+          "bitter": {
+            "mae": 0.1455,
+            "rmse": 0.2606,
+            "r2": -0.1943,
+            "pearson_r": 0.332
+          },
+          "salty": {
+            "mae": 0.0237,
+            "rmse": 0.0874,
+            "r2": 0.6923,
+            "pearson_r": 0.8335
+          },
+          "umami": {
+            "mae": 0.0847,
+            "rmse": 0.234,
+            "r2": -0.7705,
+            "pearson_r": -0.0394
+          },
+          "astringent": {
+            "mae": 0.0789,
+            "rmse": 0.1985,
+            "r2": -0.2959,
+            "pearson_r": 0.0692
+          },
+          "pungent": {
+            "mae": 0.1043,
+            "rmse": 0.1931,
+            "r2": 0.2107,
+            "pearson_r": 0.5054
+          },
+          "cooling": {
+            "mae": 0.072,
+            "rmse": 0.2073,
+            "r2": -0.8322,
+            "pearson_r": -0.0634
+          },
+          "creamy_mouthfeel": {
+            "mae": 0.1261,
+            "rmse": 0.2548,
+            "r2": -0.2216,
+            "pearson_r": 0.4633
+          },
+          "acidic_crisp": {
+            "mae": 0.185,
+            "rmse": 0.3153,
+            "r2": -0.7997,
+            "pearson_r": -0.0287
+          }
+        }
+      }
+    },
+    "Ridge Linear Baseline": {
+      "aroma": {
+        "mae": 0.1438,
+        "rmse": 0.2363,
+        "r2": 0.0338,
+        "cv_time_sec": 0.031,
+        "per_descriptor": {
+          "fruity": {
+            "mae": 0.1815,
+            "rmse": 0.2623,
+            "r2": 0.2443,
+            "pearson_r": 0.5008
+          },
+          "floral": {
+            "mae": 0.1467,
+            "rmse": 0.2437,
+            "r2": 0.0034,
+            "pearson_r": 0.331
+          },
+          "citrus": {
+            "mae": 0.1228,
+            "rmse": 0.2314,
+            "r2": -0.1105,
+            "pearson_r": 0.2926
+          },
+          "woody": {
+            "mae": 0.1413,
+            "rmse": 0.2208,
+            "r2": -0.0888,
+            "pearson_r": 0.2746
+          },
+          "spicy": {
+            "mae": 0.1403,
+            "rmse": 0.2549,
+            "r2": -0.0877,
+            "pearson_r": 0.3417
+          },
+          "earthy": {
+            "mae": 0.1077,
+            "rmse": 0.1739,
+            "r2": 0.1041,
+            "pearson_r": 0.3779
+          },
+          "creamy_vanilla": {
+            "mae": 0.1819,
+            "rmse": 0.2897,
+            "r2": -0.1901,
+            "pearson_r": 0.3666
+          },
+          "roasted_nutty": {
+            "mae": 0.1436,
+            "rmse": 0.2502,
+            "r2": 0.0686,
+            "pearson_r": 0.3242
+          },
+          "green_herbal": {
+            "mae": 0.1726,
+            "rmse": 0.2802,
+            "r2": -0.262,
+            "pearson_r": -0.0126
+          },
+          "caramel_sweet": {
+            "mae": 0.1627,
+            "rmse": 0.2226,
+            "r2": 0.2053,
+            "pearson_r": 0.5048
+          },
+          "sulfuric_pungent": {
+            "mae": 0.1068,
+            "rmse": 0.1746,
+            "r2": 0.4523,
+            "pearson_r": 0.6929
+          },
+          "fresh_cooling": {
+            "mae": 0.117,
+            "rmse": 0.1986,
+            "r2": 0.0669,
+            "pearson_r": 0.3202
+          }
+        }
+      },
+      "flavor": {
+        "mae": 0.1114,
+        "rmse": 0.1972,
+        "r2": 0.1546,
+        "cv_time_sec": 0.007,
+        "per_descriptor": {
+          "sweet": {
+            "mae": 0.2044,
+            "rmse": 0.2708,
+            "r2": 0.1327,
+            "pearson_r": 0.4361
+          },
+          "sour": {
+            "mae": 0.0952,
+            "rmse": 0.1717,
+            "r2": 0.494,
+            "pearson_r": 0.7282
+          },
+          "bitter": {
+            "mae": 0.1244,
+            "rmse": 0.2104,
+            "r2": 0.2212,
+            "pearson_r": 0.487
+          },
+          "salty": {
+            "mae": 0.0419,
+            "rmse": 0.0983,
+            "r2": 0.6108,
+            "pearson_r": 0.8222
+          },
+          "umami": {
+            "mae": 0.0848,
+            "rmse": 0.2021,
+            "r2": -0.3202,
+            "pearson_r": -0.1285
+          },
+          "astringent": {
+            "mae": 0.0881,
+            "rmse": 0.1558,
+            "r2": 0.201,
+            "pearson_r": 0.4702
+          },
+          "pungent": {
+            "mae": 0.1173,
+            "rmse": 0.1874,
+            "r2": 0.2563,
+            "pearson_r": 0.5124
+          },
+          "cooling": {
+            "mae": 0.0597,
+            "rmse": 0.1596,
+            "r2": -0.0862,
+            "pearson_r": 0.0239
+          },
+          "creamy_mouthfeel": {
+            "mae": 0.1528,
+            "rmse": 0.232,
+            "r2": -0.0132,
+            "pearson_r": 0.4242
+          },
+          "acidic_crisp": {
+            "mae": 0.1449,
+            "rmse": 0.2291,
+            "r2": 0.0498,
+            "pearson_r": 0.3974
+          }
+        }
+      }
+    }
+  },
+  "calibration": {
+    "aroma": {
+      "nominal_coverage": 0.9,
+      "empirical_coverage": 1.0,
+      "mean_interval_width": 0.4549,
+      "calibration_error": 0.1
+    },
+    "flavor": {
+      "nominal_coverage": 0.9,
+      "empirical_coverage": 1.0,
+      "mean_interval_width": 0.3616,
+      "calibration_error": 0.1
+    }
+  },
+  "sample_count": 65,
+  "feature_count": 265,
+  "generated_at": "2026-09-21T13:28:15Z"
+}
