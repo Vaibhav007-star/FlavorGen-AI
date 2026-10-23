@@ -1,50 +1,58 @@
+/// <reference types="vite/client" />
 import {
   IngredientItem, CompoundItem, SensoryLabSimulationResponse,
   CandidateFormulation, SimilarityMatchItem, FlavorSpaceNode
 } from '../types/sensory';
+import { ENoseSensorFrame, ENoseClassification, PhysicalSynthesisJob } from '../types/hardware';
+import { fallbackService } from './fallbackService';
 
-const API_BASE = '/api/v1';
+const API_BASE = ((import.meta as any).env?.VITE_API_BASE as string) || '/api/v1';
 
 export const api = {
   async getHealth() {
     try {
       const res = await fetch(`${API_BASE}/health`);
-      if (!res.ok) return { status: 'offline' };
+      if (!res.ok) return fallbackService.getHealth();
       return await res.json();
     } catch {
-      return { status: 'offline' };
+      return fallbackService.getHealth();
     }
   },
 
   async getIngredients(): Promise<IngredientItem[]> {
-    const res = await fetch(`${API_BASE}/ingredients`);
-    if (!res.ok) {
-      throw new Error(`Failed to load ingredients (status: ${res.status})`);
+    try {
+      const res = await fetch(`${API_BASE}/ingredients`);
+      if (!res.ok) return fallbackService.getIngredients();
+      const data = await res.json();
+      return Array.isArray(data) && data.length > 0 ? data : fallbackService.getIngredients();
+    } catch {
+      return fallbackService.getIngredients();
     }
-    const data = await res.json();
-    return Array.isArray(data) ? data : [];
   },
 
   async getCompounds(limit: number = 100): Promise<CompoundItem[]> {
-    const res = await fetch(`${API_BASE}/compounds?limit=${limit}`);
-    if (!res.ok) {
-      throw new Error(`Failed to load compounds (status: ${res.status})`);
+    try {
+      const res = await fetch(`${API_BASE}/compounds?limit=${limit}`);
+      if (!res.ok) return fallbackService.getCompounds(limit);
+      const data = await res.json();
+      return Array.isArray(data) && data.length > 0 ? data : fallbackService.getCompounds(limit);
+    } catch {
+      return fallbackService.getCompounds(limit);
     }
-    const data = await res.json();
-    return Array.isArray(data) ? data : [];
   },
 
   async predictAroma(payload: { smiles?: string; ingredient_name?: string }) {
-    const res = await fetch(`${API_BASE}/predict/aroma`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    });
-    if (!res.ok) {
-      const err = await res.json();
-      throw new Error(err.detail || 'Aroma prediction failed');
+    try {
+      const res = await fetch(`${API_BASE}/predict/aroma`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      if (!res.ok) return fallbackService.predictAroma(payload);
+      return await res.json();
+    } catch {
+      return fallbackService.predictAroma(payload);
     }
-    return res.json();
   },
 
   async predictAromaSmiles(smiles: string) {
@@ -56,16 +64,17 @@ export const api = {
   },
 
   async predictFlavor(payload: { smiles?: string; ingredient_name?: string }) {
-    const res = await fetch(`${API_BASE}/predict/flavor`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    });
-    if (!res.ok) {
-      const err = await res.json();
-      throw new Error(err.detail || 'Flavor prediction failed');
+    try {
+      const res = await fetch(`${API_BASE}/predict/flavor`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      if (!res.ok) return fallbackService.predictFlavor(payload);
+      return await res.json();
+    } catch {
+      return fallbackService.predictFlavor(payload);
     }
-    return res.json();
   },
 
   async predictFlavorSmiles(smiles: string) {
@@ -77,16 +86,17 @@ export const api = {
   },
 
   async analyzeFormulation(items: Array<{ ingredient_name: string; proportion: number }>, applyInteractions: boolean = true) {
-    const res = await fetch(`${API_BASE}/analyze/formulation`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ items, apply_interaction_effects: applyInteractions })
-    });
-    if (!res.ok) {
-      const err = await res.json();
-      throw new Error(err.detail || 'Formulation analysis failed');
+    try {
+      const res = await fetch(`${API_BASE}/analyze/formulation`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ items, apply_interaction_effects: applyInteractions })
+      });
+      if (!res.ok) return fallbackService.analyzeFormulation(items);
+      return await res.json();
+    } catch {
+      return fallbackService.analyzeFormulation(items);
     }
-    return res.json();
   },
 
   async generateFormulation(
@@ -111,16 +121,17 @@ export const api = {
       payload = payloadOrPrompt;
     }
 
-    const res = await fetch(`${API_BASE}/generate/formulation`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    });
-    if (!res.ok) {
-      const err = await res.json();
-      throw new Error(err.detail || 'Formulation generation failed');
+    try {
+      const res = await fetch(`${API_BASE}/generate/formulation`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      if (!res.ok) return fallbackService.generateFormulation(payload);
+      return await res.json();
+    } catch {
+      return fallbackService.generateFormulation(payload);
     }
-    return res.json();
   },
 
   async searchSimilarity(payload: {
@@ -129,16 +140,17 @@ export const api = {
     top_k?: number;
     mode?: 'sensory' | 'chemical' | 'multimodal' | 'contrastive';
   }): Promise<SimilarityMatchItem[]> {
-    const res = await fetch(`${API_BASE}/similarity/search`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    });
-    if (!res.ok) {
-      const err = await res.json();
-      throw new Error(err.detail || 'Similarity search failed');
+    try {
+      const res = await fetch(`${API_BASE}/similarity/search`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      if (!res.ok) return fallbackService.searchSimilarity(payload);
+      return await res.json();
+    } catch {
+      return fallbackService.searchSimilarity(payload);
     }
-    return res.json();
   },
 
   async simulateSensoryPerturbation(payload: {
@@ -146,16 +158,17 @@ export const api = {
     modified_formulation: Array<{ ingredient_name: string; proportion: number }>;
     apply_interactions?: boolean;
   }): Promise<SensoryLabSimulationResponse> {
-    const res = await fetch(`${API_BASE}/sensory/simulate`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    });
-    if (!res.ok) {
-      const err = await res.json();
-      throw new Error(err.detail || 'Sensory simulation failed');
+    try {
+      const res = await fetch(`${API_BASE}/sensory/simulate`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      if (!res.ok) return fallbackService.simulateSensoryPerturbation(payload);
+      return await res.json();
+    } catch {
+      return fallbackService.simulateSensoryPerturbation(payload);
     }
-    return res.json();
   },
 
   async simulateSensoryShift(
@@ -171,83 +184,93 @@ export const api = {
   },
 
   async queryAssistant(query: string, history?: Array<{ role: string; content: string }>) {
-    const res = await fetch(`${API_BASE}/assistant/query`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ query, conversation_history: history || [] })
-    });
-    if (!res.ok) {
-      const err = await res.json();
-      throw new Error(err.detail || 'Assistant query failed');
+    try {
+      const res = await fetch(`${API_BASE}/assistant/query`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ query, conversation_history: history || [] })
+      });
+      if (!res.ok) return fallbackService.queryAssistant(query);
+      return await res.json();
+    } catch {
+      return fallbackService.queryAssistant(query);
     }
-    return res.json();
   },
 
   async getFlavorSpace(): Promise<{ total_entities: number; nodes: FlavorSpaceNode[]; methodology: string }> {
-    const res = await fetch(`${API_BASE}/flavor-space`);
-    if (!res.ok) {
-      throw new Error(`Failed to load flavor space (status: ${res.status})`);
+    try {
+      const res = await fetch(`${API_BASE}/flavor-space`);
+      if (!res.ok) return fallbackService.getFlavorSpace();
+      const data = await res.json();
+      return {
+        total_entities: data?.total_entities || 0,
+        nodes: Array.isArray(data?.nodes) && data.nodes.length > 0 ? data.nodes : fallbackService.getFlavorSpace().nodes,
+        methodology: data?.methodology || ''
+      };
+    } catch {
+      return fallbackService.getFlavorSpace();
     }
-    const data = await res.json();
-    return {
-      total_entities: data?.total_entities || 0,
-      nodes: Array.isArray(data?.nodes) ? data.nodes : [],
-      methodology: data?.methodology || ''
-    };
   },
 
   async getModelBenchmarks() {
-    const res = await fetch(`${API_BASE}/models/benchmarks`);
-    if (!res.ok) {
-      throw new Error(`Failed to load model benchmarks (status: ${res.status})`);
+    try {
+      const res = await fetch(`${API_BASE}/models/benchmarks`);
+      if (!res.ok) return fallbackService.getModelBenchmarks();
+      return await res.json();
+    } catch {
+      return fallbackService.getModelBenchmarks();
     }
-    return res.json();
   },
 
-  async classifyENose(payload: import('../types/hardware').ENoseSensorFrame): Promise<import('../types/hardware').ENoseClassification> {
-    const res = await fetch(`${API_BASE}/hardware/enose/classify`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    });
-    if (!res.ok) {
-      const err = await res.json();
-      throw new Error(err.detail || 'E-Nose classification failed');
+  async classifyENose(payload: ENoseSensorFrame): Promise<ENoseClassification> {
+    try {
+      const res = await fetch(`${API_BASE}/hardware/enose/classify`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      if (!res.ok) return fallbackService.classifyENose(payload);
+      return await res.json();
+    } catch {
+      return fallbackService.classifyENose(payload);
     }
-    return res.json();
   },
 
   async getENosePresets(): Promise<Record<string, any>> {
-    const res = await fetch(`${API_BASE}/hardware/enose/presets`);
-    if (!res.ok) {
-      throw new Error('Failed to load E-Nose presets');
+    try {
+      const res = await fetch(`${API_BASE}/hardware/enose/presets`);
+      if (!res.ok) return fallbackService.getENosePresets();
+      return await res.json();
+    } catch {
+      return fallbackService.getENosePresets();
     }
-    return res.json();
   },
 
-  async programDispenser(payload: { recipe_title?: string; formulation: any[]; total_volume_microliters?: number }): Promise<import('../types/hardware').PhysicalSynthesisJob> {
-    const res = await fetch(`${API_BASE}/hardware/dispenser/program`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        recipe_title: payload.recipe_title || 'Custom Blend',
-        formulation: payload.formulation,
-        total_volume_microliters: payload.total_volume_microliters || 1000.0
-      })
-    });
-    if (!res.ok) {
-      const err = await res.json();
-      throw new Error(err.detail || 'Dispenser programming failed');
+  async programDispenser(payload: { recipe_title?: string; formulation: any[]; total_volume_microliters?: number }): Promise<PhysicalSynthesisJob> {
+    try {
+      const res = await fetch(`${API_BASE}/hardware/dispenser/program`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          recipe_title: payload.recipe_title || 'Custom Blend',
+          formulation: payload.formulation,
+          total_volume_microliters: payload.total_volume_microliters || 1000.0
+        })
+      });
+      if (!res.ok) return fallbackService.programDispenser(payload);
+      return await res.json();
+    } catch {
+      return fallbackService.programDispenser(payload);
     }
-    return res.json();
   },
 
   async getArduinoFirmware(): Promise<{ firmware_name: string; target: string; baud_rate: number; source_code: string }> {
-    const res = await fetch(`${API_BASE}/hardware/firmware/arduino`);
-    if (!res.ok) {
-      throw new Error('Failed to fetch firmware');
+    try {
+      const res = await fetch(`${API_BASE}/hardware/firmware/arduino`);
+      if (!res.ok) return fallbackService.getArduinoFirmware();
+      return await res.json();
+    } catch {
+      return fallbackService.getArduinoFirmware();
     }
-    return res.json();
   }
 };
-

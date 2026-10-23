@@ -25,6 +25,8 @@ build/
 *.egg-info/
 .npm
 .eslintcache
+.vercel/
+frontend/.vercel/
 
 # Environment variables & secrets
 .env
@@ -41,3 +43,5 @@ yarn-error.log*
 .DS_Store
 Thumbs.db
 desktop.ini
+
+.vercel

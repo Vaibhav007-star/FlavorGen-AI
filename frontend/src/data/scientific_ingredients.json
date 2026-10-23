@@ -1,0 +1,282 @@
+[
+  {
+    "name": "Strawberry",
+    "category": "Fruit",
+    "botanical_name": "Fragaria \u00d7 ananassa",
+    "description": "Sweet, fragrant red berry characterized by key volatiles furaneol and ethyl butyrate.",
+    "constituent_compounds": [
+      {
+        "compound_name": "Furaneol (Strawberry Furanone)",
+        "concentration_mg_kg": 25.0,
+        "role": "Key character impact furanone"
+      },
+      {
+        "compound_name": "Ethyl butyrate",
+        "concentration_mg_kg": 8.0,
+        "role": "Top-note fruity ester"
+      },
+      {
+        "compound_name": "Hexanal",
+        "concentration_mg_kg": 3.5,
+        "role": "Fresh green top note"
+      },
+      {
+        "compound_name": "Linalool",
+        "concentration_mg_kg": 1.2,
+        "role": "Floral background note"
+      },
+      {
+        "compound_name": "Citric acid",
+        "concentration_mg_kg": 8500.0,
+        "role": "Primary acidulant"
+      },
+      {
+        "compound_name": "Sucrose",
+        "concentration_mg_kg": 45000.0,
+        "role": "Natural sweetness"
+      }
+    ]
+  },
+  {
+    "name": "Vanilla Extract",
+    "category": "Spice / Botanical",
+    "botanical_name": "Vanilla planifolia",
+    "description": "Aromatic extract derived from cured vanilla pods dominated by 4-hydroxy-3-methoxybenzaldehyde.",
+    "constituent_compounds": [
+      {
+        "compound_name": "Vanillin",
+        "concentration_mg_kg": 1500.0,
+        "role": "Primary characteristic phenolic"
+      },
+      {
+        "compound_name": "Delta-Decalactone",
+        "concentration_mg_kg": 12.0,
+        "role": "Creamy lactone nuance"
+      },
+      {
+        "compound_name": "Ethyl maltol",
+        "concentration_mg_kg": 5.0,
+        "role": "Sweet caramel background"
+      },
+      {
+        "compound_name": "Sucrose",
+        "concentration_mg_kg": 10000.0,
+        "role": "Carrier sugar"
+      }
+    ]
+  },
+  {
+    "name": "Lemon Peel",
+    "category": "Citrus",
+    "botanical_name": "Citrus limon",
+    "description": "Zesty citrus peel rich in monoterpenes and citral providing bright, sparkling aroma.",
+    "constituent_compounds": [
+      {
+        "compound_name": "D-Limonene",
+        "concentration_mg_kg": 65000.0,
+        "role": "Major terpene carrier (65-70%)"
+      },
+      {
+        "compound_name": "Citral (Neral/Geranial)",
+        "concentration_mg_kg": 2500.0,
+        "role": "Key characteristic lemon impact"
+      },
+      {
+        "compound_name": "Linalool",
+        "concentration_mg_kg": 450.0,
+        "role": "Floral citrus modifier"
+      },
+      {
+        "compound_name": "Citric acid",
+        "concentration_mg_kg": 12000.0,
+        "role": "Crisp tartness"
+      }
+    ]
+  },
+  {
+    "name": "Roasted Coffee",
+    "category": "Beverage / Roasted",
+    "botanical_name": "Coffea arabica",
+    "description": "Complex thermal roast profile resulting from Maillard reactions and Strecker degradations.",
+    "constituent_compounds": [
+      {
+        "compound_name": "2-Ethyl-3,5-dimethylpyrazine",
+        "concentration_mg_kg": 15.0,
+        "role": "Roasty nutty pyrazine"
+      },
+      {
+        "compound_name": "Furaneol (Strawberry Furanone)",
+        "concentration_mg_kg": 8.0,
+        "role": "Caramelized sugar note"
+      },
+      {
+        "compound_name": "Caffeine",
+        "concentration_mg_kg": 12000.0,
+        "role": "Characteristic bitter alkaloid"
+      },
+      {
+        "compound_name": "Citric acid",
+        "concentration_mg_kg": 2500.0,
+        "role": "Bright coffee acidity"
+      }
+    ]
+  },
+  {
+    "name": "Peppermint",
+    "category": "Herb",
+    "botanical_name": "Mentha \u00d7 piperita",
+    "description": "Pungent, refreshing aromatic herb providing distinct TRPM8 receptor cooling.",
+    "constituent_compounds": [
+      {
+        "compound_name": "L-Menthol",
+        "concentration_mg_kg": 28000.0,
+        "role": "Primary cooling monoterpene"
+      },
+      {
+        "compound_name": "Linalool",
+        "concentration_mg_kg": 120.0,
+        "role": "Floral background note"
+      },
+      {
+        "compound_name": "Hexanal",
+        "concentration_mg_kg": 80.0,
+        "role": "Herbal green nuance"
+      }
+    ]
+  },
+  {
+    "name": "Cinnamon",
+    "category": "Spice",
+    "botanical_name": "Cinnamomum verum",
+    "description": "Warm, pungent spice bark rich in cinnamaldehyde and eugenol.",
+    "constituent_compounds": [
+      {
+        "compound_name": "Cinnamaldehyde",
+        "concentration_mg_kg": 18000.0,
+        "role": "Primary spicy aroma impact"
+      },
+      {
+        "compound_name": "Eugenol",
+        "concentration_mg_kg": 1200.0,
+        "role": "Warm woody clove modifier"
+      },
+      {
+        "compound_name": "Linalool",
+        "concentration_mg_kg": 300.0,
+        "role": "Sweet floral floral lift"
+      }
+    ]
+  },
+  {
+    "name": "Dark Chocolate (70%)",
+    "category": "Confectionery",
+    "botanical_name": "Theobroma cacao",
+    "description": "Rich roasted fermented cocoa mass with pronounced bitter, roasty, and creamy notes.",
+    "constituent_compounds": [
+      {
+        "compound_name": "2-Ethyl-3,5-dimethylpyrazine",
+        "concentration_mg_kg": 22.0,
+        "role": "Roasty nutty cocoa note"
+      },
+      {
+        "compound_name": "Caffeine",
+        "concentration_mg_kg": 800.0,
+        "role": "Bitterness stimulant"
+      },
+      {
+        "compound_name": "Vanillin",
+        "concentration_mg_kg": 45.0,
+        "role": "Round vanilla smoothing"
+      },
+      {
+        "compound_name": "Delta-Decalactone",
+        "concentration_mg_kg": 10.0,
+        "role": "Cocoa butter creaminess"
+      },
+      {
+        "compound_name": "Epigallocatechin gallate (EGCG)",
+        "concentration_mg_kg": 3500.0,
+        "role": "Polyphenolic astringency"
+      }
+    ]
+  },
+  {
+    "name": "Green Tea",
+    "category": "Beverage / Herb",
+    "botanical_name": "Camellia sinensis",
+    "description": "Steamed unfermented tea leaves with high catechin polyphenols and clean grassy notes.",
+    "constituent_compounds": [
+      {
+        "compound_name": "Epigallocatechin gallate (EGCG)",
+        "concentration_mg_kg": 42000.0,
+        "role": "Astringent antioxidant catechin"
+      },
+      {
+        "compound_name": "Caffeine",
+        "concentration_mg_kg": 15000.0,
+        "role": "Brisk bitterness"
+      },
+      {
+        "compound_name": "Hexanal",
+        "concentration_mg_kg": 15.0,
+        "role": "Fresh leafy green top-note"
+      },
+      {
+        "compound_name": "Linalool",
+        "concentration_mg_kg": 8.0,
+        "role": "Floral floral accent"
+      },
+      {
+        "compound_name": "Monosodium glutamate",
+        "concentration_mg_kg": 2500.0,
+        "role": "Natural theanine umami equivalent"
+      }
+    ]
+  },
+  {
+    "name": "Fresh Butter",
+    "category": "Dairy",
+    "botanical_name": "Bos taurus (Milk Fat)",
+    "description": "Rich dairy emulsion dominated by diacetyl and short-chain fatty acid lactones.",
+    "constituent_compounds": [
+      {
+        "compound_name": "Diacetyl (2,3-Butanedione)",
+        "concentration_mg_kg": 8.0,
+        "role": "Primary buttery aroma impact"
+      },
+      {
+        "compound_name": "Delta-Decalactone",
+        "concentration_mg_kg": 18.0,
+        "role": "Creamy mouthfeel and dairy roundness"
+      },
+      {
+        "compound_name": "Vanillin",
+        "concentration_mg_kg": 0.5,
+        "role": "Sweet trace background"
+      }
+    ]
+  },
+  {
+    "name": "Bell Pepper",
+    "category": "Vegetable",
+    "botanical_name": "Capsicum annuum",
+    "description": "Crisp vegetable with extraordinarily low odor threshold pyrazines.",
+    "constituent_compounds": [
+      {
+        "compound_name": "2-Isobutyl-3-methoxypyrazine",
+        "concentration_mg_kg": 0.15,
+        "role": "Potent character impact pyrazine (OT: 0.002 ug/L)"
+      },
+      {
+        "compound_name": "Hexanal",
+        "concentration_mg_kg": 12.0,
+        "role": "Grassy crisp note"
+      },
+      {
+        "compound_name": "Citric acid",
+        "concentration_mg_kg": 1500.0,
+        "role": "Mild vegetal acidity"
+      }
+    ]
+  }
+]
