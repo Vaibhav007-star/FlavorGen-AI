@@ -280,8 +280,8 @@ curl -X POST http://localhost:8000/api/v1/assistant/query \
 
 ### Step 1: Clone Repository
 ```bash
-git clone https://github.com/your-org/ai-smell-flavor-synthesizer.git
-cd "ai-smell-flavor-synthesizer"
+git clone https://github.com/Vaibhav007-star/FlavorGen-AI.git
+cd "FlavorGen-AI"
 ```
 
 ### Step 2: Set Up Python Backend
@@ -312,13 +312,13 @@ cd frontend
 npm install
 npm run dev
 ```
-Frontend will be available at: `http://localhost:5173`
+Frontend will be available at: `http://localhost:3000`
 
 ---
 
 ## 8. Test Suite & Validation
 
-The test suite contains **39 comprehensive automated unit and integration tests** validating every layer of the architecture:
+The test suite contains **42 comprehensive automated unit and integration tests** validating every layer of the architecture:
 
 ```bash
 # Run all test suites
